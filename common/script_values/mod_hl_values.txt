@@ -1,0 +1,7 @@
+﻿#Main Menu Root
+hlm_main = 1000
+hlm_default = 1
+hlm_max = 100000
+
+
+
