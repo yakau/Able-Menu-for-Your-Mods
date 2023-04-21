@@ -1,0 +1,41 @@
+﻿hl_00000_debug_reset_decision = {
+
+	ai_chance = {}
+	
+	is_shown = {}
+
+	possible = {
+		is_ai = no
+	}
+
+	when_taken = {
+		remove_variable = var_hl_lower_limit
+		remove_variable = var_hl_parent_menu
+		remove_variable = var_hl_upper_limit
+		remove_variable = var_hl_pos
+		remove_variable = var_hl_pos_2
+		remove_variable = var_hl_pos_3
+		remove_variable = var_hl_pos_4
+		remove_variable = var_hl_pos_5
+		remove_variable = var_hl_pos_6
+		remove_variable = var_hl_pos_7
+		remove_variable = var_hl_pos_8
+		remove_variable = var_hl_pos_9
+		remove_variable = var_hl_pos_10
+		remove_variable = var_hl_pos_11
+		remove_variable = var_hl_pos_12
+		remove_variable = var_hl_hide_1
+		remove_variable = var_hl_hide_2
+		remove_variable = var_hl_hide_3
+		remove_variable = var_hl_hide_4
+		remove_variable = var_hl_hide_5
+		remove_variable = var_hl_hide_6
+		remove_variable = var_hl_hide_7
+		remove_variable = var_hl_hide_8
+		remove_variable = var_hl_hide_9
+		remove_variable = var_hl_hide_10
+		remove_variable = var_hl_hide_11
+		remove_variable = var_hl_hide_12
+		remove_variable = var_hl_show_menu
+	}
+}

@@ -1,0 +1,398 @@
+﻿mod_hl_menu_master = {
+
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_2 } # create all variables needed in submenus now to prevent error.log overflow
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_3 } # mod_hl_menu_create_missing_vars creates var if var is missing
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_4 } # this keeps old var values saved
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_5 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_6 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_7 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_8 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_9 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_10 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_11 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_pos_12 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_lower_limit }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_upper_limit }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_parent_menu }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_1 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_2 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_3 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_4 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_5 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_6 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_7 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_8 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_9 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_10 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_11 }
+	mod_hl_menu_create_missing_vars = { HL_TEST_VAR = var_hl_hide_12 }
+	set_variable = { name = var_test_script value = 11120 }
+
+	if = { # new user, no vars set yet
+		limit = {
+			NOT = { has_variable = var_hl_show_menu }
+			NOT = { has_variable = var_hl_pos }
+		}
+		set_variable = { name = var_hl_show_menu }
+		set_variable = {
+			name = var_hl_pos
+			value = hlm_main
+		}
+	}	
+
+	else_if = { # returning user, re-opening menu
+		limit = {
+			NOT = { has_variable = var_hl_show_menu }
+			has_variable = var_hl_pos
+			var:var_hl_pos >= 0
+		}
+		set_variable = { name = var_hl_show_menu }
+	}
+
+	else_if = { # current user, collapsing menu. Save var_hl_pos (menu position) for next time
+		limit = {
+			has_variable = var_hl_show_menu
+		}
+		remove_variable = var_hl_show_menu
+	}
+
+	else = { # final safety net, open menu and reset position to main menu, like new user
+		set_variable = { name = var_hl_show_menu }
+		set_variable = {
+			name = var_hl_pos
+			value = hlm_main
+		}
+	}
+}
+
+mod_hl_menu_branch = {
+	# debug_log = "hlm Decision Started. Does Decision ID print here?"
+	set_variable = { # This Branch Menu starts here, at this value
+		name = var_hl_lower_limit
+		value = $HL_LOWER_LIMIT$
+	}
+	set_variable = { # This Branch Menu ends one integer before this value (eg. 19,999)
+		name = var_hl_upper_limit
+		value = $HL_UPPER_LIMIT$
+	}
+	set_variable = { # This is the parent menu. You'll go there if you collapse this branch.
+		name = var_hl_parent_menu
+		value = $HL_PARENT_MENU$
+	}
+	# debug_log = "hlm 3 vars set"
+
+	if = { # User is expanding this branch
+	# debug_log = "hlm primary if decision (expand)"
+		limit = { #Test if User is from Outside this Branch
+		# debug_log = "hlm primary if decision (expand) limit check"
+			NOT = {
+				OR = {
+					# debug_log = "hlm primary if decision (expand) start limit var checks"
+					AND = {
+						var:var_hl_pos >= var:var_hl_lower_limit # Check User from within this SubMenu branch
+						var:var_hl_pos < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_2 >= var:var_hl_lower_limit
+						var:var_hl_pos_2 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_3 >= var:var_hl_lower_limit
+						var:var_hl_pos_3 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_4 >= var:var_hl_lower_limit
+						var:var_hl_pos_4 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_5 >= var:var_hl_lower_limit
+						var:var_hl_pos_5 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_6 >= var:var_hl_lower_limit
+						var:var_hl_pos_6 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_7 >= var:var_hl_lower_limit
+						var:var_hl_pos_7 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_8 >= var:var_hl_lower_limit
+						var:var_hl_pos_8 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_9 >= var:var_hl_lower_limit
+						var:var_hl_pos_9 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_10 >= var:var_hl_lower_limit
+						var:var_hl_pos_10 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_11 >= var:var_hl_lower_limit
+						var:var_hl_pos_11 < var:var_hl_upper_limit
+					}
+					AND = {
+						var:var_hl_pos_12 >= var:var_hl_lower_limit
+						var:var_hl_pos_12 < var:var_hl_upper_limit
+					}
+					# debug_log = "hlm primary if decision (expand) finish limit var checks"
+				}
+			}
+			# debug_log = "hlm primary if decision (expand) limit check at end"	
+		}
+		# debug_log = "hlm primary if decision (expand) limit check passed"
+
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 1 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 2 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 3 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 4 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 5 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 6 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 7 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 8 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 9 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 10 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 11 }
+		mod_hl_menu_re_expand_hidden_submenus = { HL_RECOVER_POS = 12 }
+		
+		switch = {
+			trigger = hlm_default
+			var:var_hl_pos_2 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_2 HL_NEXT_POS = var_hl_pos_3 } }
+			var:var_hl_pos_3 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_3 HL_NEXT_POS = var_hl_pos_4 } }
+			var:var_hl_pos_4 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_4 HL_NEXT_POS = var_hl_pos_5 } }
+			var:var_hl_pos_5 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_5 HL_NEXT_POS = var_hl_pos_6 } }
+			var:var_hl_pos_6 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_6 HL_NEXT_POS = var_hl_pos_7 } }
+			var:var_hl_pos_7 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_7 HL_NEXT_POS = var_hl_pos_8 } }
+			var:var_hl_pos_8 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_8 HL_NEXT_POS = var_hl_pos_9 } }
+			var:var_hl_pos_9 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_9 HL_NEXT_POS = var_hl_pos_10 } }
+			var:var_hl_pos_10 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_10 HL_NEXT_POS = var_hl_pos_11 } }
+			var:var_hl_pos_11 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_11 HL_NEXT_POS = var_hl_pos_12 } }
+			var:var_hl_pos_12 = { mod_hl_menu_save_old_pos = { HL_BLANK_POS = var_hl_pos_12 HL_NEXT_POS = var_hl_pos_2 } }
+		}
+		# debug_log = "Menu Decision Expanded"
+		# debug_log_scopes = yes
+	}
+
+	# debug_log = "hlm Decision not over, but log stops here. We're between Expand and Collapse blocks here."
+	# debug_log_scopes = no
+
+	else_if = { # User collapsing this branch, going to previous menu
+		limit = { #Test of User from Within this Branch
+			OR = {
+				AND = { # Check if User has expanded this branch, or any branches downstream.
+					var:var_hl_pos >= var:var_hl_lower_limit
+					var:var_hl_pos < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_2 >= var:var_hl_lower_limit
+					var:var_hl_pos_2 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_3 >= var:var_hl_lower_limit
+					var:var_hl_pos_3 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_4 >= var:var_hl_lower_limit
+					var:var_hl_pos_4 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_5 >= var:var_hl_lower_limit
+					var:var_hl_pos_5 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_6 >= var:var_hl_lower_limit
+					var:var_hl_pos_6 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_7 >= var:var_hl_lower_limit
+					var:var_hl_pos_7 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_8 >= var:var_hl_lower_limit
+					var:var_hl_pos_8 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_9 >= var:var_hl_lower_limit
+					var:var_hl_pos_9 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_10 >= var:var_hl_lower_limit
+					var:var_hl_pos_10 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_11 >= var:var_hl_lower_limit
+					var:var_hl_pos_11 < var:var_hl_upper_limit
+				}
+				AND = {
+					var:var_hl_pos_12 >= var:var_hl_lower_limit
+					var:var_hl_pos_12 < var:var_hl_upper_limit
+				}
+			} 
+		}
+
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 2
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 3
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 4
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 5
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 6
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 7
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 8
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 9
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 10
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 11
+		}
+		mod_hl_menu_erase_old_pos_data_on_collapse = {
+			HL_OLD_POS = 12
+		}
+		set_variable = { #have to handle this separately here (instead of with mod_hl_menu_erase_old_pos_data_on_collapse above), because var_hl_pos naming scheme doesn't quite match rationalised pos_2, pos_3, etc and I'm not going to risk breaking the code just to make it prettier
+			name = var_hl_hide_1
+			value = var:var_hl_pos
+		}
+		set_variable = {
+			name = var_hl_pos
+			value = var:var_hl_parent_menu #then go back to the parent menu
+		}
+		# debug_log = "Decision collapsed was (var_hl_pos)" #var:var_hl_hide_1 aka "var_hl_lower_limit" var:var_hl_lower_limit
+		# debug_log = "Menu Decision collapsed"
+		# debug_log_scopes = yes
+	}
+
+	else = { # Should be impossible, but just incase user is outside expected bounds
+		set_variable = {
+			name = var_hl_pos
+			value = var:var_hl_lower_limit #then open this menu
+		}
+		# debug_log = "This is the Else in the expand and collapse block. Should never happen"
+		# debug_log_scopes = yes
+	}
+}
+
+
+mod_hl_menu_re_expand_hidden_submenus = {
+	if = { # Re-expanding sub-menus when the GP was closed and immediately re-opened
+	# debug_log = "hlm secondary if decision (re-expand hidden decisions) begun"
+		limit = { 
+			# if hidden folder needs to be re-exposed because GP re-opened
+			var:var_hl_hide_$HL_RECOVER_POS$ > var:var_hl_lower_limit #removed = from the >= because we're only re-opening child branches
+			var:var_hl_hide_$HL_RECOVER_POS$ < var:var_hl_upper_limit
+		}
+		switch = {
+			trigger = hlm_default
+			var:var_hl_pos_2 = { set_variable = { name = var_hl_pos_2 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_3 = { set_variable = { name = var_hl_pos_3 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_4 = { set_variable = { name = var_hl_pos_4 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_5 = { set_variable = { name = var_hl_pos_5 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_6 = { set_variable = { name = var_hl_pos_6 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_7 = { set_variable = { name = var_hl_pos_7 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_8 = { set_variable = { name = var_hl_pos_8 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_9 = { set_variable = { name = var_hl_pos_9 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_10 = { set_variable = { name = var_hl_pos_10 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_11 = { set_variable = { name = var_hl_pos_11 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			var:var_hl_pos_12 = { set_variable = { name = var_hl_pos_12 value = var:var_hl_hide_$HL_RECOVER_POS$ } }
+			fallback = {
+				debug_log = "If you see this, then FALLBACK in a SWITCH block works. Also, no pos_* were clear for use by recovery"
+			}
+		}
+		set_variable = {
+			name = var_hl_hide_$HL_RECOVER_POS$ #clear the saved hidden position
+			value = hlm_default
+		}
+		# debug_log = "hlm secondary if decision (re-expand hidden decisions) at end"
+	}
+	# debug_log = "hlm secondary if decision (re-expand hidden decisions) over"
+
+	else = {
+		set_variable = {
+			name = var_hl_pos
+			value = var:var_hl_lower_limit #then open this menu
+		}
+	} #Either copy this if else statement to bottom for hide_2 etc. duplication, or create a switch for it
+}
+
+
+mod_hl_menu_save_old_pos = {
+	# update savepoint with new menu position
+	set_variable = {
+		name = $HL_BLANK_POS$
+		value = var:var_hl_pos
+	}
+	#Check other pos_vars for an unused one. If none is empty, then reset the next pos_var in the order.
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					var:var_hl_pos_2 = hlm_default
+					var:var_hl_pos_3 = hlm_default
+					var:var_hl_pos_4 = hlm_default
+					var:var_hl_pos_5 = hlm_default
+					var:var_hl_pos_6 = hlm_default
+					var:var_hl_pos_7 = hlm_default
+					var:var_hl_pos_8 = hlm_default
+					var:var_hl_pos_9 = hlm_default
+					var:var_hl_pos_10 = hlm_default
+					var:var_hl_pos_11 = hlm_default
+					var:var_hl_pos_12 = hlm_default
+				}
+			}	
+		}
+		#If no unused pos vars, then erase one
+		set_variable = {
+			name = $HL_NEXT_POS$
+			value = hlm_default # clear next rolling savepoint, set to value "1"	
+		}
+	}
+}
+
+
+mod_hl_menu_erase_old_pos_data_on_collapse = {
+	if = { #Check for and remove any menu position data from collapsed menus
+		limit = { 
+			AND = {
+				var:var_hl_pos_$HL_OLD_POS$ >= var:var_hl_lower_limit
+				var:var_hl_pos_$HL_OLD_POS$ < var:var_hl_upper_limit
+			}
+		}
+		set_variable = { #save collapsed submenu pos first, incase re-opened
+			name = var_hl_hide_$HL_OLD_POS$
+			value = var:var_hl_pos_$HL_OLD_POS$
+		}
+		set_variable = {
+			name = var_hl_pos_$HL_OLD_POS$
+			value = hlm_default # clear a savepoint, set to value "1"
+		}
+	}
+}
+
+mod_hl_menu_create_missing_vars = {
+	if = {
+		limit = {
+			NOT = {
+				has_variable = $HL_TEST_VAR$
+			}
+		}
+		set_variable = {
+			name = $HL_TEST_VAR$
+			value = hlm_default
+		}
+	}
+}

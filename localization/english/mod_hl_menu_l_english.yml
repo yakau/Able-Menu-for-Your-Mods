@@ -1,0 +1,59 @@
+﻿l_english:
+
+  hl_expandicon:0 "@turns_into! #I "
+  hl_choice:0 "@arrow_none! #E "
+
+  hl_tier1_menu:0 "$hl_expandicon$"
+  hl_tier1:0 "   $hl_choice$"
+  hl_tier2_menu:0 "    $hl_expandicon$"
+  hl_tier2:0 "       $hl_choice$"
+  hl_tier3_menu:0 "        $hl_expandicon$"
+  hl_tier3:0 "           $hl_choice$"
+  hl_tier4_menu:0 "            $hl_expandicon$"
+  hl_tier4:0 "               $hl_choice$"
+  hl_tier5_menu:0 "                $hl_expandicon$"
+  hl_tier5:0 "                   $hl_choice$"
+  hl_tier6_menu:0 "                    $hl_expandicon$"
+  hl_tier6:0 "                       $hl_choice$"
+
+  hl_00000_debug_reset_decision:0 "Debug - Reset Menu"
+  hl_00000_debug_reset_decision_desc:0 ""
+
+  hl_01000_activate_menu_decision:0 "Open Menu"
+  hl_01000_activate_menu_decision_desc:0 ""
+
+  hl_10000_decision:0 "$hl_tier1_menu$Lorem #!"
+  hl_10000_decision_desc:0 ""
+
+  hl_11000_decision:0 "$hl_tier2_menu$Lorem Ipsum #!"
+  hl_11000_decision_desc:0 ""
+
+  hl_11100_decision:0 "$hl_tier3_menu$Lorem Ipsum Dolor #!"
+  hl_11100_decision_desc:0 ""
+
+  hl_11110_decision:0 "$hl_tier4_menu$Lorem Ipsum Dolor Sit #!"
+  hl_11110_decision_desc:0 ""
+
+  hl_11111_decision:0 "$hl_tier5_menu$Lorem Ipsum Dolor Sit Amet #!"
+  hl_11111_decision_desc:0 ""
+
+  hl_11112_decision:0 "$hl_tier5_menu$Lorem Ipsum Dolor Sit Amet #!"
+  hl_11112_decision_desc:0 ""
+
+  hl_11113_decision:0 "$hl_tier5_menu$Lorem Ipsum Dolor Sit Amet #!"
+  hl_11113_decision_desc:0 ""
+
+  hl_11120_decision:0 "$hl_tier4_menu$Lorem Ipsum Dolor Sit #!"
+  hl_11120_decision_desc:0 ""
+
+
+  hl_11121_decision:0 "$hl_tier5_menu$Lorem Ipsum Dolor Sit Amet #!"
+  hl_11121_decision_desc:0 ""
+
+
+  hl_11122_decision:0 "$hl_tier5_menu$Lorem Ipsum Dolor Sit Amet #!"
+  hl_11122_decision_desc:0 ""
+
+
+  hl_11123_decision:0 "$hl_tier5_menu$Lorem Ipsum Dolor Sit Amet #!"
+  hl_11123_decision_desc:0 ""

@@ -1,0 +1,38 @@
+﻿hl_01000_activate_menu_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {}
+
+	possible = {
+		is_ai = no
+	}
+
+	when_taken = {
+		mod_hl_menu_master = {}
+	}
+}
+
+hl_10000_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = hlm_main
+			HL_PARENT_MAX = hlm_max
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 10000
+			HL_UPPER_LIMIT = 20000
+			HL_PARENT_MENU = hlm_main
+		}
+	}
+}

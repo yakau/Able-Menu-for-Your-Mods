@@ -1,0 +1,73 @@
+﻿hl_11121_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11120
+			HL_PARENT_MAX = 11130
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11121
+			HL_UPPER_LIMIT = 11122
+			HL_PARENT_MENU = 11120
+		}
+	}
+}
+
+hl_11122_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11120
+			HL_PARENT_MAX = 11130
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11122
+			HL_UPPER_LIMIT = 11123
+			HL_PARENT_MENU = 11120
+		}
+	}
+}
+
+hl_11123_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11120
+			HL_PARENT_MAX = 11130
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11123
+			HL_UPPER_LIMIT = 11124
+			HL_PARENT_MENU = 11120
+		}
+	}
+}

@@ -1,0 +1,167 @@
+﻿hl_11000_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 10000
+			HL_PARENT_MAX = 20000
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11000
+			HL_UPPER_LIMIT = 12000
+			HL_PARENT_MENU = 10000
+		}
+	}
+}
+
+hl_11100_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11000
+			HL_PARENT_MAX = 12000
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11100
+			HL_UPPER_LIMIT = 11200
+			HL_PARENT_MENU = 11000
+		}
+	}
+}
+
+hl_11110_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11100
+			HL_PARENT_MAX = 11200
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11110
+			HL_UPPER_LIMIT = 11120
+			HL_PARENT_MENU = 11100
+		}
+	}
+}
+
+hl_11111_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11110
+			HL_PARENT_MAX = 11120
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11111
+			HL_UPPER_LIMIT = 11112
+			HL_PARENT_MENU = 11110
+		}
+	}
+}
+
+hl_11112_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11110
+			HL_PARENT_MAX = 11120
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11112
+			HL_UPPER_LIMIT = 11113
+			HL_PARENT_MENU = 11110
+		}
+	}
+}
+
+hl_11113_decision = {
+	
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility = {
+			HL_PARENT_MENU = 11110
+			HL_PARENT_MAX = 11120
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = 11113
+			HL_UPPER_LIMIT = 11114
+			HL_PARENT_MENU = 11110
+		}
+	}
+}
+
+hl_11120_decision = {
+
+	ai_chance = {}
+
+	is_shown = {
+		mod_hl_menu_branch_visibility_test = {
+			HL_PARENT_MENU = hlm_parent_menu # 11100
+			HL_PARENT_MAX = hlm_parent_max # 11200
+		}
+	}
+
+	possible = {
+		is_ai = no
+	}
+	
+	when_taken = {
+		mod_hl_menu_branch = {
+			HL_LOWER_LIMIT = hlm_lower_limit # 11120
+			HL_UPPER_LIMIT = hlm_upper_limit # 11130
+			HL_PARENT_MENU = hlm_parent_menu # 11100
+		}
+	}
+}

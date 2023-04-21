@@ -1,7 +1,26 @@
-﻿#Main Menu Root
+﻿
+#Main Menu Root
 hlm_main = 1000
 hlm_default = 1
 hlm_max = 100000
 
+# hlm_id = { value = root.var:var_test_script }
+hlm_id = 11120
 
+hlm_lower_limit = { value = hlm_id }
+hlm_upper_limit = { value = hlm_id add = 10 }
+hlm_parent_menu = { value = hlm_id divide = 100 floor = yes multiply = 100 }
+hlm_parent_max = { value = hlm_id divide = 100 ceiling = yes multiply = 100 }
+
+#hlm_parent_max = {
+#	value = hlm_parent_menu
+#	add = 100
+#}
+
+#hlm_parent_menu = {
+#	value = hlm_id
+#	divide = 100
+#	floor = yes
+#	multiply = 100
+#}
 

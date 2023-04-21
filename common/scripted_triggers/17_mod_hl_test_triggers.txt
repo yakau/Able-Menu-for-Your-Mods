@@ -1,0 +1,54 @@
+﻿mod_hl_menu_branch_visibility_test = {
+	has_variable = var_hl_show_menu # Check Menu is Open
+	has_variable = var_hl_pos # Check Menu position variable is set
+	OR = { # The below are Decision Visibility checks for when the user's current menu position is either in the Parent Menu, in this Menu, in a side-Menu that branches from Parent Menu, or is in a sub menu downstream from here
+		AND = {
+			var:var_hl_pos >= $HL_PARENT_MENU$ # The Parent Menu's actual value (also, is the lowest possible)
+			var:var_hl_pos < $HL_PARENT_MAX$ # The Parent Menu's next highest sibling's Menu value (-1 to get the max limit for Parent Menu)
+		}
+		AND = { #pos_2, pos_3, etc. are save points of previous expanded menu positions (will increase if necessary). This allows multiple sub menus to be expanded at the same time
+			var:var_hl_pos_2 >= $HL_PARENT_MENU$
+			var:var_hl_pos_2 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_3 >= $HL_PARENT_MENU$
+			var:var_hl_pos_3 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_4 >= $HL_PARENT_MENU$
+			var:var_hl_pos_4 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_5 >= $HL_PARENT_MENU$
+			var:var_hl_pos_5 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_6 >= $HL_PARENT_MENU$
+			var:var_hl_pos_6 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_7 >= $HL_PARENT_MENU$
+			var:var_hl_pos_7 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_8 >= $HL_PARENT_MENU$
+			var:var_hl_pos_8 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_9 >= $HL_PARENT_MENU$
+			var:var_hl_pos_9 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_10 >= $HL_PARENT_MENU$
+			var:var_hl_pos_10 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_11 >= $HL_PARENT_MENU$
+			var:var_hl_pos_11 < $HL_PARENT_MAX$
+		}
+		AND = {
+			var:var_hl_pos_12 >= $HL_PARENT_MENU$
+			var:var_hl_pos_12 < $HL_PARENT_MAX$
+		}
+	}
+}
